@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>پروژه‌های ادیتم</title>
+
+  <!-- استایل -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- هدر -->
+    <header>
+      <div class="title">
+
+        <div class="logo">
+          🎬
+        </div>
+
+        <div>
+          <h1>پروژه‌های ادیتم</h1>
+          <div class="sub">
+            همه پروژه‌های شما در یک نگاه
+          </div>
+        </div>
+
+      </div>
+
+      <button class="icon-btn" onclick="alert('منوی برنامه')">
+        ☰
+      </button>
+
+      <button class="icon-btn">
+        🔔
+      </button>
+    </header>
+
+
+    <!-- جستجو و پروژه جدید -->
+    <div class="toolbar">
+
+      <input
+        id="search"
+        class="search"
+        type="text"
+        placeholder="جستجوی پروژه..."
+        oninput="render()"
+      >
+
+      <button class="new" onclick="openModal()">
+        ＋ پروژه جدید
+      </button>
+
+    </div>
+
+
+    <!-- فیلترها -->
+    <div class="filters">
+
+      <button
+        class="filter active"
+        onclick="setFilter('همه', this)">
+        همه
+      </button>
+
+      <button
+        class="filter"
+        onclick="setFilter('در حال ادیت', this)">
+        در حال ادیت
+      </button>
+
+      <button
+        class="filter"
+        onclick="setFilter('تکمیل شده', this)">
+        تکمیل شده
+      </button>
+
+      <button
+        class="filter"
+        onclick="setFilter('خام', this)">
+        خام
+      </button>
+
+      <button
+        class="filter"
+        onclick="setFilter('آرشیو', this)">
+        آرشیو
+      </button>
+
+    </div>
+
+
+    <!-- تعداد پروژه -->
+    <div class="count">
+
+      <span id="count">
+        ۰ پروژه
+      </span>
+
+      <span>
+        ↕ مرتب‌سازی
+      </span>
+
+    </div>
+
+
+    <!-- لیست پروژه‌ها -->
+    <main>
+
+      <div
+        id="projects"
+        class="grid">
+      </div>
+
+      <div
+        id="empty"
+        class="empty">
+        پروژه‌ای پیدا نشد.
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- پنجره ساخت پروژه -->
+  <div
+    id="modal"
+    class="modal">
+
+    <div class="box">
+
+      <h2>
+        ➕ پروژه جدید
+      </h2>
+
+
+      <!-- نام پروژه -->
+      <label for="name">
+        نام پروژه
+      </label>
+
+      <input
+        id="name"
+        type="text"
+        placeholder="مثلاً سفر به شمال"
+      >
+
+
+      <!-- شماره تماس -->
+      <label for="phone">
+        شماره تماس
+      </label>
+
+      <input
+        id="phone"
+        type="tel"
+        placeholder="09032574495"
+      >
+
+
+      <!-- تاریخ -->
+      <label for="date">
+        تاریخ
+      </label>
+
+      <input
+        id="date"
+        type="date"
+      >
+
+
+      <!-- وضعیت -->
+      <label for="status">
+        وضعیت پروژه
+      </label>
+
+      <select id="status">
+
+        <option value="خام">
+          خام
+        </option>
+
+        <option value="در حال ادیت" selected>
+          در حال ادیت
+        </option>
+
+        <option value="تکمیل شده">
+          تکمیل شده
+        </option>
+
+        <option value="آرشیو">
+          آرشیو
+        </option>
+
+      </select>
+
+
+      <!-- دکمه‌ها -->
+      <div class="actions">
+
+        <button
+          class="cancel"
+          onclick="closeModal()">
+          انصراف
+        </button>
+
+        <button
+          class="save"
+          onclick="addProject()">
+          ذخیره پروژه
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- منوی پایین -->
+  <nav class="bottom">
+
+    <button>
+      ⚙️
+      <br>
+      تنظیمات
+    </button>
+
+    <button>
+      🗃️
+      <br>
+      آرشیو
+    </button>
+
+    <button class="active">
+      🏠
+      <br>
+      خانه
+    </button>
+
+    <button>
+      ⭐
+      <br>
+      مورد علاقه
+    </button>
+
+  </nav>
+
+
+  <!-- جاوااسکریپت -->
+  <script src="script.js"></script>
+
+</body>
+  </html>
